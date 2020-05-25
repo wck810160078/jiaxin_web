@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户登录</title>
+		<script type="text/javascript" src="../../../js/jQuery/jquery-2.2.3.min.js" ></script>
+		<script type="text/javascript" src="../../../js/user/index/login.js" ></script>
+		<link rel="stylesheet" href="../../../css/user/index/login.css" />
+		<!--toastr-->
+		<link rel="stylesheet" href="../../../css/bootstrap/toastr/toastr.css" />
+		<script type="text/javascript" src="../../../js/jQuery/bootstrap/toastr/toastr.min.js" ></script>
+		<script src="../../../js/url.js"></script>
+		<script src="../../../js/toolsFunction.js"></script>
+	</head>
+	<body>
+		<div class="login_div">
+			<form id="loginForm_id" method="post" class="login_from">
+				<table border="1">
+					<tr>
+						<td>
+							<span class="login_span">账号：</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<!--<input name="username" class="username_class" id="username_id" 
+								placeholder="手机号码/用户名" required />-->
+								<input type="text" placeholder="手机号码/用户名" name="username" class="username_class"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="login_span">密码：</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<!--<input type="password" name="password" class="password_class" id="password_id" required
+								placeholder="密码不能包含汉字和特殊字符" onkeyup="value=value.replace(/[\W]/g,'') " 
+								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>-->
+								<input type="password" name="password" class="password_class" placeholder="密码不能包含汉字和特殊字符" onkeyup="value=value.replace(/[\W]/g,'') " 
+								onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: center;">
+							<input type="button" id="loginSubmit_id" class="loginSubmit_class" value="登录" />
+							<p>还没有账号?<a href="register.html" >立即注册</a></p>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

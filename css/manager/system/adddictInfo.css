@@ -1,0 +1,12 @@
+@charset "utf-8";
+#addDictInfoTab_id {
+	text-align: right;
+}
+#dictName_id,#dictInfo_id,#state_id,#remark_id {
+	height: 42px;
+	width: 200px;
+}
+#addDictInfoSubmit_id {
+	height: 42px;
+	width: 80px;
+}

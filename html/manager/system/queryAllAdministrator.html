@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>所有管理员</title>
+		<!--jquery-->
+		<script src="../../../js/jQuery/jquery-2.2.3.min.js"></script>
+		<!--bootstrap-->
+		<script src="../../../js/jQuery/bootstrap/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="../../../css/bootstrap/bootstrap.min.css" />
+		<!--bootstrap-table-->
+		<link href="../../../css/bootstrap/fresh-bootstrap-table.css" rel="stylesheet">
+		<script src="../../../js/jQuery/bootstrap/bootstrap-table.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="../../../css/bootstrap/bootstrap-select.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="../../../js/jQuery/bootstrap/bootstrap-select.js"></script>
+		<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+		<script src="../../../js/jQuery/bootstrap/defaults-zh_CN.js"></script>
+		<!--自己写的js和css-->
+		<script src="../../../js/manager/system/queryAllAdministrator.js"></script>
+		<link rel="stylesheet" href="../../../css/manager/system/queryAllAdministrator.css" />
+	</head>
+	<body>
+		<div class="panel panel-default" style="text-align: right;">
+			<span>角色：</span>
+		    <select class="selectpicker" id="dictTypeSel_id">
+		    	<option>全部</option>
+		    	<option>营业员 </option>
+		    	<option>业务员</option>
+		    </select>
+		    &nbsp;&nbsp;
+		    <span>状态：</span>
+	        <select class="selectpicker" id="stateSel_id">
+		   		<option>全部</option>
+	        	<option>仅显示使用中</option>
+	        	<option>仅显示停用中</option>
+		    </select>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+    		<label class="form-inline" />
+		         <input type="text" class="form-control" id="administratorSea_id" placeholder="管理员信息"/>
+		         <button id="administratorSeaBut_id" type="button" class="btn btn-primary">查找</button>
+		    </label>
+		</div>
+        <button id="addadministratorBut_id" type="button" class="btn btn-primary">添加管理员</button>
+        &nbsp;&nbsp;
+        <button id="administratorDel_id" class="btn btn-primary">批量停用</button>
+        &nbsp;&nbsp;
+        <button id="income_id" class="btn btn-primary">导入</button>
+        &nbsp;&nbsp;
+        <button id="outcome_id" class="btn btn-primary">导出</button>
+        &nbsp;&nbsp;
+        <button id="outcome_id" class="btn btn-primary">打印</button>
+        <button id="outcome_id" class="btn btn-primary">预览</button>
+        <!--&nbsp;&nbsp;
+        <button id="outcome_id" class="btn btn-primary">隐藏零库存</button>-->
+		<table align="center" class="table table-hover table-bordered" id="administratorTab_id">
+			<caption style="text-align: center;color: black;">
+				<big><b>所有管理员信息</b></big>
+			</caption>
+		</table>
+	</body>
+</html>

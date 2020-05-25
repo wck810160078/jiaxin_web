@@ -1,0 +1,14 @@
+@charset "utf-8";
+body {
+	margin:  0;
+	padding: 0;
+}
+.elevation-4 {
+	/* background-color: rgba(241,243,244,0.6); */
+}
+.has-treeview {
+	/* border: red solid 1px; */
+	margin: 5px;
+	border-radius: 5px;
+	/* background-color: wheat; */
+}

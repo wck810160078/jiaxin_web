@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>湖南佳鑫食品工业有限公司后台管理</title>
+		<!-- REQUIRED SCRIPTS -->
+		<!-- jQuery -->
+		<script type="text/javascript" src="../../../AdminLTE/plugins/jquery/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="../../../AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- AdminLTE -->
+		<script src="../../../AdminLTE/dist/js/adminlte.js"></script>
+		
+		<!-- OPTIONAL SCRIPTS -->
+		<!-- <script src="../../../AdminLTE/plugins/chart.js/Chart.min.js"></script> -->
+		<!-- <script src="../../../AdminLTE/dist/js/demo.js"></script> -->
+		<!-- <script src="../../../AdminLTE/dist/js/pages/dashboard3.js"></script> -->
+		<!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="../../../AdminLTE/plugins/fontawesome-free/css/all.min.css">
+		<!-- IonIcons -->
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="../../../AdminLTE/dist/css/adminlte.min.css">
+		<!-- Google Font: Source Sans Pro -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+		<!-- awesome -->
+		<link rel="stylesheet" href="../../../css/bootstrap/fontawesome-free-5.11.2-web/css/all.css">
+		<script src="../../../js/manager/main/managerMain.js"></script>
+		<link rel="stylesheet" href="../../../css/manager/main/managerMain.css" />
+	</head>
+	<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+	<body class="hold-transition sidebar-mini">
+		<div class="wrapper">
+			<!-- 导航栏 -->
+			<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+				<!-- 左侧导航栏链接 -->
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" data-widget="pushmenu" href="#" role="button">
+							<i class="fas fa-bars"></i>
+						</a>
+					</li>
+					<li class="nav-item d-none d-sm-inline-block">
+						<a href="index3.html" class="nav-link">首页</a>
+					</li>
+					<!-- <li class="nav-item d-none d-sm-inline-block">
+						<a href="#" class="nav-link">内容</a>
+					</li> -->
+				</ul>
+
+				<!-- 右侧导航栏链接 -->
+				<ul class="navbar-nav ml-auto">
+					<!-- 消息的下拉式菜单 -->
+					<li class="nav-item dropdown">
+						<a class="nav-link" data-toggle="dropdown" href="#">
+							<i class="far fa-comments"></i>
+							消息&nbsp;&nbsp;
+							<span class="badge badge-danger navbar-badge">3</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+							<a href="#" class="dropdown-item">
+								<!-- 消息开始 -->
+								<div class="media">
+									<img src="../../../AdminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+									<div class="media-body">
+										<h3 class="dropdown-item-title">
+											Brad Diesel
+											<span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+										</h3>
+										<p class="text-sm">Call me whenever you can...</p>
+										<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+									</div>
+								</div>
+								<!-- 消息结束 -->
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<!-- 消息开始 -->
+								<div class="media">
+									<img src="../../../AdminLTE/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+									<div class="media-body">
+										<h3 class="dropdown-item-title">
+											John Pierce
+											<span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+										</h3>
+										<p class="text-sm">I got your message bro</p>
+										<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+									</div>
+								</div>
+								<!-- 消息开始 -->
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<!-- 消息开始 -->
+								<div class="media">
+									<img src="../../../AdminLTE/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+									<div class="media-body">
+										<h3 class="dropdown-item-title">
+											Nora Silvester
+											<span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+										</h3>
+										<p class="text-sm">The subject goes here</p>
+										<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+									</div>
+								</div>
+								<!-- 消息开始 -->
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+						</div>
+					</li>
+					<!-- 通知的下拉式菜单 -->
+					<li class="nav-item dropdown">
+						<a class="nav-link" data-toggle="dropdown" href="#">
+							<i class="far fa-bell"></i>
+							通知&nbsp;&nbsp;&nbsp;
+							<span class="badge badge-warning navbar-badge">15</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+							<span class="dropdown-item dropdown-header">15 Notifications</span>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-envelope mr-2"></i> 4 new messages
+								<span class="float-right text-muted text-sm">3 mins</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-users mr-2"></i> 8 friend requests
+								<span class="float-right text-muted text-sm">12 hours</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-file mr-2"></i> 3 new reports
+								<span class="float-right text-muted text-sm">2 days</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link" data-toggle="dropdown" href="#">
+							<img style="height: 120%;" src="../../../AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+							<span>超级管理员</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-user-cog mr-2"></i>个人信息
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item">
+								<i class="fas fa-sign-out-alt mr-2"></i>退出
+							</a>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- /.navbar -->
+
+			<!-- 主侧边栏容器 -->
+			<aside class="main-sidebar sidebar-dark-primary elevation-4">
+				<!-- 品牌logo -->
+				<a href="index3.html" class="brand-link">
+					<img src="../../../AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+					 style="opacity: .8">
+					<span class="brand-text font-weight-light">
+						湖南佳鑫
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						食品工业有限公司
+					</span>
+				</a>
+
+				<!-- 左侧导航栏 -->
+				<div class="sidebar">
+					<!-- 导航栏菜单 -->
+					<nav class="mt-2">
+						<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+							<!-- Add icons to the links using the .nav-icon class
+								with font-awesome or any other icon font library -->
+							<li class="nav-header">
+								<h5>导航栏</h5>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-tachometer-alt"></i>
+									<p>
+										系统
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="../system/queryAllDictInfo.html" target="iframe_name" class="nav-link">
+											<i class="fas fa-database nav-icon"></i>
+											<p>数据字典</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="./index2.html" target="iframe_name" class="nav-link">
+											<i class="fas fa-users-cog nav-icon"></i>
+											<p>营业员</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="./index2.html" target="iframe_name" class="nav-link">
+											<i class="far fas fa-users-cog nav-icon"></i>
+											<p>业务员</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-copy"></i>
+									<p>
+										库存
+										<i class="fas fa-angle-left right"></i>
+										<!-- <span class="badge badge-info right">6</span> -->
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="../stock/queryAllProduct.html" target="iframe_name" class="nav-link">
+											<i class="fas fa-cheese nav-icon"></i>
+											<p>产品</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="" target="iframe_name" class="nav-link">
+											<i class="fas fa-mortar-pestle nav-icon"></i>
+											<p>生产原料</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/layout/boxed.html" target="iframe_name" class="nav-link">
+											<i class="fas fa-satellite nav-icon"></i>
+											<p>包装材料</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-user-astronaut"></i>
+									<p>
+										客户
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="pages/charts/chartjs.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-users nav-icon"></i>
+											<p>所有客户</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/charts/flot.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-tags nav-icon"></i>
+											<p>客户报价</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="pages/widgets.html"  target="iframe_name" class="nav-link">
+									<i class="nav-icon fas fa-shopping-bag"></i>
+									<p>
+										供货商
+										<!-- <span class="right badge badge-danger">New</span> -->
+									</p>
+								</a>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-ticket-alt"></i>
+									<p>
+										单据
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="pages/UI/general.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-eye nav-icon"></i>
+											<p>单据模板</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/UI/icons.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-list-alt nav-icon"></i>
+											<p>销售订单</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/UI/icons.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-list-alt nav-icon"></i>
+											<p>销售单</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/UI/icons.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-list-alt nav-icon"></i>
+											<p>进货单</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/UI/icons.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-list-alt nav-icon"></i>
+											<p>收款单</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/UI/icons.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-list-alt nav-icon"></i>
+											<p>付款单</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-credit-card"></i>
+									<p>
+										账户
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="pages/forms/general.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-envelope-open-text nav-icon"></i>
+											<p>所有账户</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/forms/advanced.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-yen-sign nav-icon"></i>
+											<p>资金流水</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="pages/forms/editors.html"  target="iframe_name" class="nav-link">
+											<i class="fas fa-money-bill-alt nav-icon"></i>
+											<p>其他收支</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-clipboard"></i>
+									<p>
+										报表
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item has-treeview">
+										<a href="#" class="nav-link">
+											<i class="fas fa-table nav-icon"></i>
+											<p>
+												资金报表
+												<i class="right fas fa-angle-left"></i>
+											</p>
+										</a>
+										<ul class="nav nav-treeview">
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-indent nav-icon"></i>
+													<p>收入分析</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-outdent nav-icon"></i>
+													<p>支出分析</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-briefcase nav-icon"></i>
+													<p>收支概况</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-briefcase nav-icon"></i>
+													<p>利润统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-street-view nav-icon"></i>
+													<p>营业员统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-street-view nav-icon"></i>
+													<p>业务员统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-industry nav-icon"></i>
+													<p>经营业绩</p>
+												</a>
+											</li>
+										</ul>
+									<li class="nav-item has-treeview">
+										<a href="#" class="nav-link">
+											<i class="fas fa-table nav-icon"></i>
+											<p>
+												进销存报表
+												<i class="right fas fa-angle-left"></i>
+											</p>
+										</a>
+										<ul class="nav nav-treeview">
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-industry nav-icon"></i>
+													<p>销售统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-shopping-bag nav-icon"></i>
+													<p>进货统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-home nav-icon"></i>
+													<p>库存统计</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-print nav-icon"></i>
+													<p>库存预警</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-hand-point-right nav-icon"></i>
+													<p>应收欠款</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-hand-point-right nav-icon"></i>
+													<p>应收欠款对账单</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-hand-point-left nav-icon"></i>
+													<p>应付欠款</p>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a href="#"  target="iframe_name" class="nav-link">
+													<i class="fas fa-hand-point-left nav-icon"></i>
+													<p>应付欠款对账单</p>
+												</a>
+											</li>
+										</ul>
+								</ul>
+							</li>
+						</ul>
+						</li>
+
+						</ul>
+					</nav>
+					<!-- /.sidebar-menu -->
+				</div>
+				<!-- /.sidebar -->
+			</aside>
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<div class="content-header">
+					<div class="container-fluid">
+						<div class="row mb-2">
+							<div class="col-sm-6">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Main content -->
+				<div class="content">
+					<div class="container-fluid">
+						<iframe src="Welcom.html" frameborder="0" scrolling="auto" id="iframe_id" name="iframe_name" οnlοad="changeFrameHeight()"
+						 style="min-height:1000px;width:100%;height:100%;"></iframe>
+					</div>
+					<!-- /.container-fluid -->
+				</div>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+				All rights reserved.
+				<div class="float-right d-none d-sm-inline-block">
+					<b>Version</b> 3.0.4
+				</div>
+			</footer>
+		</div>
+		<!-- ./wrapper -->
+
+		
+	</body>
+</html>

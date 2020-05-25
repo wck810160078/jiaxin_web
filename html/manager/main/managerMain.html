@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>湖南佳鑫食品有限公司后台管理</title>
+		<!-- easyui 主题样式-->
+		<link rel="stylesheet" type="text/css" href="../../../js/jquery-easyui-1.8.2/themes/bootstrap/easyui.css" />
+		<!-- 图标样式 -->
+		<link rel="stylesheet" type="text/css" href="../../../js/jquery-easyui-1.8.2/themes/icon.css">
+		<!-- jquery核心文件 -->
+		<!--<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.10.2.min.js"></script>-->
+		<script type="text/javascript" src="../../../js/jquery-1.10.2.min.js" ></script>
+		<!-- easyuijs 核心文件  -->
+		<script type="text/javascript" src="../../../js/jquery-easyui-1.8.2/jquery.easyui.min.js"></script>
+		<script src="../../../js/jquery-easyui-1.8.2/locale/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body class="easyui-layout">
+		<!--页面顶部  -->
+		<div data-options="region:'north'" style="height:70px;">
+			<div id="top">
+				<div class="left">
+					<img onclick="javascript:ManagerMain()"
+						src="Images/UserMain_BackGround.jpg"
+						style="height: 64px;width: 240px;" />
+				</div>
+				<div class="right">
+					|&nbsp;管理员&nbsp;|&nbsp;
+					<span class="managerAccount"></span>&nbsp;| 
+					<span class="area"></span>&nbsp;| 
+					<a href="javascript:LoginOut()">【注销】</a>&nbsp;|
+				</div>
+			</div>
+		</div>
+		<!--页面下部-->
+		<div data-options="region:'south'"
+			style="height:30px;text-align: right;padding-top:5px;padding-right: 10px;">
+			湖南佳鑫食品有限公司后台管理 v 1.0</div>
+		<!-- 页面导航  -->
+		<div data-options="region:'west',title:'菜单导航',split:true"
+			style="width:175px;">
+			<div id="nav" class="easyui-accordion" data-options="fit:true">
+				<div class="nav_list" title="客户管理">
+					<ul>
+						<li><a href="../data/queryAllUserEasyUi.html" target="iframe">客户信息</a></li>
+					</ul>
+				</div>
+				<div class="nav_list" title="数据字典">
+					<ul>
+						<li><a href="../data/queryAllDictInfo.html" target="iframe">数据字典（bootstrap）</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-options="region:'center'"
+			style="padding:5px;background:RGB(238,238,238);">
+			<iframe name="iframe" frameborder="0" scrolling="0" width="100%"
+				height="100%" src="Welcom.html"></iframe>
+		</div>
+	</body>
+</html>

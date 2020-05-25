@@ -1,0 +1,18 @@
+@charset "utf-8";
+/*数据字典明细表格*/
+#dictInfoTab_id {
+	text-align: center;
+	font-family: "楷体";
+	font-size: 20px;
+	color: #000000;
+}
+/*修改数据字典明细信息状态按钮*/
+.changeDictInfoState_class {
+	border-radius: 5px;
+}
+a {
+	text-decoration: none;
+}
+#dictInfoSea_id {
+	width: 200px;
+}

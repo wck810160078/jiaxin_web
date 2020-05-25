@@ -1,0 +1,13 @@
+@charset "utf-8";
+#addAdministratorForm_id {
+	text-align: center;
+	font-family: "楷体";
+}
+#administrator_id,#password_id,#phone_id,#role_id,#state_id,#remark_id {
+	height: 42px;
+	width: 200px;
+}
+#addAdministratorSubmit_id {
+	height: 42px;
+	width: 80px;
+}

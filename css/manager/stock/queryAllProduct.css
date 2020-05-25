@@ -1,0 +1,33 @@
+@charset "utf-8";
+#dialogLabel_id {
+	text-align: center;
+	font-family: "楷体";
+}
+#productTab_id {
+	font-family: "楷体";
+	font-size: 18px;
+}
+/*修改库存信息状态按钮*/
+.changeStockState_class {
+	border-radius: 5px;
+}
+.editStock_class {
+	border-radius: 5px;
+}
+.iconContent_class {
+	/*display:inline-block;*/
+	border:1px solid red;
+	width:30px;
+	height:30px;
+	/*position:absolute;
+	right:2px;
+	z-index:100;
+	cursor: pointer;*/
+	padding-right: 100px;
+	padding-top: 6px;
+}
+#icon_remove {
+	display:inline-block;
+	padding-right: 100px;
+	padding-top: 6px;
+}

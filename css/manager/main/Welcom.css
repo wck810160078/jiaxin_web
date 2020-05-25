@@ -1,0 +1,11 @@
+@charset "utf-8";
+#welcom_id {
+	padding-top: 462px;
+	padding-left: 270px;
+	width: 900px;
+	height: 66px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 50px;
+	text-align: center;
+	font-family: 方正楷体-标准;
+}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+.username_class,.password_class {
+	height: 40px;
+	width: 350px;
+	border: 1px solid grey;
+	border-radius:5px ;
+}
+a{
+	text-decoration: none;
+}
+.loginSubmit_class{
+	height: 40px;
+	width: 350px;
+	border: 1px solid #4285f4;
+	border-radius:5px ;
+	color: white;
+	background: #4285f4;
+	margin-top: 20px;
+}
+table{
+	border: none;
+}
+td{
+	border:0;
+}
+input{
+	border: 0;
+	outline: none;
+}
+.login_div{
+	width: 500px;
+	height: 330px;
+	margin: 150px auto;
+	border: 1px #CCCCCC solid;
+}
+input.loginSubmit_class:hover{
+	background-color: #409EFF;
+}
+.login_from{
+	width: 350px;
+	height: 200px;
+	margin: 50px auto;
+}
+.login_span{
+	font-weight: bold;
+	font-size: 16px;
+}

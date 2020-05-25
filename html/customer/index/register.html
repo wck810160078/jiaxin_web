@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户注册</title>
+	</head>
+	<script type="text/javascript" src="../../../js/jQuery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="../../../js/user/index/register.js"></script>
+	<link rel="stylesheet" href="../../../css/user/index/register.css" />
+	<!--toastr-->
+	<link rel="stylesheet" href="../../../css/bootstrap/toastr/toastr.css" />
+	<script type="text/javascript" src="../../../js/jQuery/bootstrap/toastr/toastr.min.js" ></script>
+	<script src="../../../js/url.js"></script>
+	<script src="../../../js/toolsFunction.js"></script>
+	<body>
+	<div class="register_div">
+		<form id="registerForm_id" method="post" class="register_form">
+			<table border="1">
+				<tr>
+					<td>
+						<span class="register_span">用户名：</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="username" class="login_input" placeholder="请输入用户名"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="register_span">手机号码：</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input name="phoneNumber" class="login_input" id="phonenumber_id" 
+							minLength="11" placeholder="请输入手机号" maxLength="11" onchange="isPhoneNumber()"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="register_span">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						<input type="password" name="password" class="login_input" id="password_id" 
+							placeholder="密码不能包含汉字和特殊字符" onkeyup="value=value.replace(/[\W]/g,'') " 
+							onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="register_span">确认密码：</span></td>
+				</tr>
+				<tr>
+					<td><input type="password" class="login_input" id="confirmpassword_id" 
+						placeholder="密码不能包含汉字和特殊字符" onkeyup="value=value.replace(/[\W]/g,'') " 
+						onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: center;">
+						<input type="button" id="registerSubmit_id" class="registerSubmit_class" value="注册" />
+						<p>已有账号?<a href="login.html" >返回登录</a></p>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

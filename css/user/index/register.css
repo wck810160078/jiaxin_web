@@ -1,0 +1,47 @@
+@charset "utf-8";
+.login_input{
+	height: 40px;
+	width: 350px;
+	border: 1px solid grey;
+	border-radius:5px ;
+}
+.register_div{
+	width: 500px;
+	height: 530px;
+	margin: 50px auto;
+	border: 1px #CCCCCC solid;
+}
+a{
+	text-decoration: none;
+}
+.registerSubmit_class{
+	height: 40px;
+	width: 350px;
+	border: 1px solid #4285f4;
+	border-radius:5px ;
+	color: white;
+	background: #4285f4;
+	margin-top: 20px;
+}
+table{
+	border: none;
+}
+td{
+	border:0;
+}
+input{
+	border: 0;
+	outline: none;
+}
+input.registerSubmit_class:hover{
+	background-color: #409EFF;
+}
+.register_form{
+	width: 350px;
+	height: 200px;
+	margin: 50px auto;
+}
+.register_span{
+	font-weight: bold;
+	font-size: 16px;
+}
