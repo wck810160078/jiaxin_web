@@ -1,23 +1,23 @@
-var url = url ;
+// var url = url ;
 $(function() {
 	//先销毁表格
     $('#productTab_id').bootstrapTable('destroy');
 	/*表格初始化*/
-	tabelInitialization("http://127.0.0.1:8080/selectStockByLabel") ;
+	tabelInitialization() ;
 	/*toastr弹出框插件初始化*/
-	toastrInitialization() ;
+	// toastrInitialization() ;
 	/**
 	 * 上传图片fileinput初始化
 	 */
-	imgFileinputInitialization() ;
+	// imgFileinputInitialization() ;
 	/**
 	 * 上传文件fileinput初始化
 	 */
-	excelFileinputInitialization() ;
+	// excelFileinputInitialization() ;
 	/**
 	 * 	表单验证初始化
 	 */
-	formValidator();
+	// formValidator();
 	/**
 	 * 	点击addProductBut_id时，显示productDialog_id Dialog
 	 */
@@ -330,9 +330,16 @@ function formValidator(){
  * 	表格初始化
  * @param url 初始化请求接口
  */
-function tabelInitialization(url) {
+function tabelInitialization() {
 	$('#productTab_id').bootstrapTable({
-		url: url,
+		url : url+'/staff/getStockListByLabel',
+		// url: url,
+        ajaxOptions: {
+        	xhrFields: {        //跨域
+        		withCredentials: true
+        	},
+        	crossDomain: true
+        },
         contentType:'application/json',
         showHeader: true,     				//是否显示列头
         showLoading: true,
@@ -341,6 +348,7 @@ function tabelInitialization(url) {
         toolbarAlign: 'left',
         paginationHAlign: 'right',
         silent: true,
+        singleSelect: true,					//复选框只能选择一条记录
         method: 'post',                     //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器 //设置工具栏的Id或者class 
         striped: true,                      //是否显示行间隔色
@@ -349,40 +357,45 @@ function tabelInitialization(url) {
         sidePagination: "server",			//分页方式：client客户端分页，server服务端分页（*）
         sortable: true,                     //是否启用排序
         sortOrder: "asc",                   //排序方式
-        pageNumber: 1,                       //初始化加载第一页，默认第一页
-        pageSize: 5,                       //每页的记录行数（*）
-        pageList: [5, 10, 15],       		 //可供选择的每页的行数（*）
+        pageNumber: 1,                      //初始化加载第一页，默认第一页
+        pageSize: 5,                       	//每页的记录行数（*）
+        pageList: [5,10,15],       			//可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
         strictSearch: true,
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行 //点击行即可选中单选/复选框 
-        uniqueId: "stockId",                     //每一行的唯一标识，一般为主键列
-        detailView: false,                   //是否显示父子表
+        uniqueId: "stockId",              //每一行的唯一标识，一般为主键列
+        detailView: false,                  //是否显示父子表
         showExport: true,
-        //exportDataType: 'all',
-        exportDataType: "selected",        //导出checkbox选中的行数
-        paginationLoop: false,             //是否无限循环
-		/* 右上角工具条 */
-		//showRefresh: true, //显示刷新按钮
-		//showToggle: true, //是否显示详细视图和列表视图的切换按钮
-		//showColumns: true, //显示下拉框勾选要显示的列 
-		paginationPreText: "上一页",
-		paginationNextText: "下一页",
-		paginationFirstText : "首页",
-		paginationLastText : "尾页",
-		//iconSize: "outline", 
-		//cardView: false,//设置为True时显示名片（card）布局 
-//		singleSelect: false,//复选框只能选择一条记录
-		locale: "zh-CN", //中文支持
+        exportDataType: "selected",        	//导出checkbox选中的行数
+        paginationLoop: false,             	//是否无限循环
+        paginationPreText: "上一页",
+        paginationNextText: "下一页",
+        paginationFirstText : "首页",
+        paginationLastText : "尾页",
+        locale: "zh-CN", //中文支持
+		responseHandler: function(res) {
+			if(res.code == 10000) {
+				return {
+					"total": res.resp.total,//总页数
+					"rows": res.resp.rows   //数据
+				}
+			}else {
+				toastr.warning(res.message) ;
+				// setTimeout(function() {
+				// 	window.parent.location.href = "../../html/loginAndRegister.html" ;
+				// },300);
+			}
+		},
 		queryParams : function(params) {
 			return {
 				// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 				"limit" : params.limit,
 				"offset" : params.offset,
-				"t" : {
-					"label" 	: 	"产品",
-					"state" 	:	$('#stateSel_id').val() == '-1' ? "" : $('#stateSel_id').val(),
-					"stockType" :	$('#dictTypeSel_id').val() == '-1' ? "" : $('#dictTypeSel_id').val(),
+				"paramObj" : {
+					"label" 	: 	"CP",
+					"state" 	:	$('#stateSel_id').val() == '-1' ? null : $('#stateSel_id').val(),
+					"stockType" :	$('#dictTypeSel_id').val() == '-1' ? null : $('#dictTypeSel_id').val(),
 					"stockName" :	$('#productSea_id').val() ,
 					"stockNow" 	: 	$('#stockNow_input_id').val()
 				}
