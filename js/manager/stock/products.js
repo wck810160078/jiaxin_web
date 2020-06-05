@@ -30,6 +30,49 @@ $(function() {
 		$("#dictTypeSel_id").selectpicker('val','-1');
 		$('#productTab_id').bootstrapTable('selectPage', 1);
 	}) ;
+	/**
+     * 	点击productClose_id（批量停用）调用deleteStock方法批量删除库存信息
+     */
+    $('#productClose_id').click(function(){
+    	deleteStockList("close") ;
+    });
+	/**
+	 * 	点击productOpen_id（批量启用）调用deleteStock方法批量删除库存信息
+	 */
+	$('#productOpen_id').click(function(){
+		deleteStockList("open") ;
+	});
+	/**
+	 * 	隐藏零库存/显示全部
+	 */
+	$('#hide_zero').click(function(){
+		var stockNow = $('#stockNowInput_id').val() ;
+		if(stockNow == "0") {
+			/*当stockNow=0,应该隐藏零库存*/
+			$('#stockNowInput_id').val("-1") ;
+			$('#hide_zero').text("隐藏零库存") ;
+		}else if(stockNow == "-1") {
+			$('#stockNowInput_id').val("0") ;
+			$('#hide_zero').text("显示全部") ;
+		}
+		$('#productTab_id').bootstrapTable('selectPage', 1);
+	}) ;
+	/**
+	 * 	导入
+	 */
+	$('#importStocks_id').click(function(){
+		// importStocks("产品") ;
+		$('#uploadFileDio_id').modal({
+			backdrop: "static" //--设置为static后可以防止不小心点击其他区域是弹出框消失
+		});
+	});
+	/**
+	 * 	导出
+	 */
+	$('#exportStocks_id').click(function(){
+		exportStocks("CP") ;
+	});
+	
 });
 /**
  * 	表格初始化
@@ -52,7 +95,7 @@ function tabelInitialization() {
         toolbarAlign: 'left',
         paginationHAlign: 'right',
         silent: true,
-        singleSelect: true,					//复选框只能选择一条记录
+        singleSelect: false,				//复选框只能选择一条记录
         method: 'post',                     //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器 //设置工具栏的Id或者class 
         striped: true,                      //是否显示行间隔色
@@ -62,13 +105,13 @@ function tabelInitialization() {
         sortable: true,                     //是否启用排序
         sortOrder: "asc",                   //排序方式
         pageNumber: 1,                      //初始化加载第一页，默认第一页
-        pageSize: 10,                       	//每页的记录行数（*）
+        pageSize: 10,                       //每页的记录行数（*）
         pageList: [5,10,15],       			//可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
         strictSearch: true,
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行 //点击行即可选中单选/复选框 
-        uniqueId: "stockId",              //每一行的唯一标识，一般为主键列
+        uniqueId: "stockId",              	//每一行的唯一标识，一般为主键列
         detailView: false,                  //是否显示父子表
         showExport: true,
         exportDataType: "selected",        	//导出checkbox选中的行数
@@ -101,7 +144,7 @@ function tabelInitialization() {
 					"state" 	:	$('#stateSel_id').val() == '-1' ? null : $('#stateSel_id').val(),
 					"stockType" :	$('#dictTypeSel_id').val() == '-1' ? null : $('#dictTypeSel_id').val(),
 					"stockSearchContent" :	$('#productSea_id').val() ,
-					"stockNow" 	: 	$('#stockNow_input_id').val()
+					"stockNow" 	: 	$('#stockNowInput_id').val() == '-1' ? null : $('#stockNowInput_id').val()
 				}
 			};
 		},
@@ -180,29 +223,37 @@ function tabelInitialization() {
  * @param {Object} index
  */
 function method(value, row, index) {
-	var open = "<input type='button' id=" + row["stockId"] + " class='changeStockState_class' onclick='changeStockState( " + row['stockId'] + ")' value='开启'>";
-	var close = "<input type='button' id=" + row["stockId"] + " class='changeStockState_class' onclick='changeStockState(" + row['stockId'] + ")' value='关闭'>"
+	var open = "<input type='button' id=" + row["stockId"] + " class='changeStockState_class' onclick='changeStockState( " + JSON.stringify(row) + ")' value='开启'>";
+	var close = "<input type='button' id=" + row["stockId"] + " class='changeStockState_class' onclick='changeStockState(" + JSON.stringify(row) + ")' value='关闭'>"
 	var edit = "<input type='button' id='edit"+row["stockId"]+"' class='editStock_class' onclick='editStock("+row['stockId']+")' value='编辑'>" ;
 	return row["state"] == "open" ? close+"&nbsp;&nbsp;&nbsp;&nbsp;"+edit : open+"&nbsp;&nbsp;&nbsp;&nbsp;"+edit;
 }
 /**
  * 	修改单条库存信息状态
- * @param stockId
+ * @param row
  */
-function changeStockState(stockId) {
-	deleteStock(stockId) ;
+function changeStockState(row) {
+	var ids= row.stockId ;
+	var state = row.state ;
+	if(state == "open") {
+		state = "close" ;
+	}else {
+		state = "open" ;
+	}
+	deleteStock(ids,state) ;
 }
 /**
  * 批量删除库存信息
  * @param ids
  */
-function deleteStock(ids) {
+function deleteStock(ids,state) {
 	$.ajax({
 		type: "get",
 		url: url+'/staff/changeStockState',
 		async: true,
 		data: {
-			"stockId": ids
+			"stockIds": ids,
+			"state" :state
 		},
 		crossDomain:true, //设置跨域为true
 		xhrFields: {
@@ -210,7 +261,7 @@ function deleteStock(ids) {
 		},
 		success: function(result) {
 			if(result.code == 10000) {
-				toastr.success("删除成功！") ;
+				toastr.success("修改成功！") ;
 				$("#productTab_id").bootstrapTable('refresh'); //刷新，但页码依然为当前的页码，比如page=5依然为5 
 				return ;
 			}
@@ -231,3 +282,32 @@ function deleteStock(ids) {
 		}
 	});
 }
+/**
+ * 	获取批量修改库存信息的状态
+ */
+function deleteStockList(state) {
+	/*获取所有被选中的记录*/
+	var rows= $('#productTab_id').bootstrapTable('getSelections') ;
+	if(rows.length == 0) {
+		toastr.warning("请选择要停用的数据") ;
+		return ;
+	}
+	var ids= "" ;
+	for(var i = 0 ; i < rows.length ; i++) {
+		ids += rows[i]['stockId']+",";
+	}
+	ids = ids.substring(0,ids.length - 1) ;	//去掉最后的字符
+	deleteStock(ids,state) ;
+}
+/**
+ * 根据标签导出库存信息
+ * @param {Object} label	标签
+ */
+function exportStocks(label) {
+	window.location.href = url+'/staff/exportStocks?label=' +label ; 
+}
+/**
+ * 导入库存信息
+ * @param {Object} label	标签
+ */
+function importStocks(label) {}

@@ -348,7 +348,7 @@ function tabelInitialization() {
         toolbarAlign: 'left',
         paginationHAlign: 'right',
         silent: true,
-        singleSelect: true,					//复选框只能选择一条记录
+        singleSelect: false,					//复选框只能选择一条记录
         method: 'post',                     //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器 //设置工具栏的Id或者class 
         striped: true,                      //是否显示行间隔色
